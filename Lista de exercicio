@@ -57,3 +57,28 @@ from Livro
 inner join Categoria on Categoria.Categoria_ID = Livro.Categoria_ID
 where nome_local = Categoria.Nome;
 END;
+
+Questão 7
+CREATE PROCEDURE sp_AdicionarLivro(
+    in livro_pricipal varchar(255),
+    in id_editora int,
+    in publicacao_data int,
+    in quant_paginas int,
+    in local_id int,
+    out resposta varchar(100)
+)
+begin
+    declare livro_existe int;
+	select COUNT(*) into livro_existe
+    from Livro
+    where Titulo = livro_titulo;
+    if livro_existe > 0 then
+        set resposta = "Esse título já exite";
+    else
+        insert into Livro (livro_pricipal, id_editora, publicacao_data, quant_paginas, local_id)
+        values (livro_pricipal, id_editora, publicacao_data, quant_paginas, local_id);
+
+        set resposta = "Livro adicionado";
+    end if;
+    select resposta;
+end;
