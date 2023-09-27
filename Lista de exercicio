@@ -90,3 +90,24 @@ SELECT Nome from Autor
 ORDER BY Data_Nascimento
 LIMIT 1;
 END
+
+
+Questão 9
+CREATE PROCEDURE sp_AutorMaisAntigo()
+-- aqui a procedure foi nomeada e ela não usa parâmetros de entrada
+BEGIN
+-- aqui ela inicia
+SELECT Nome from Autor
+-- aqui a tabela "Nome" da tabela "Autor" foi selecionada
+  
+ORDER BY Data_Nascimento
+-- os nomes dos autores foram ordenados pelos valores denominados pela tabela "Data_Nascimento"
+  
+LIMIT 1;
+-- apenas um registro será retornado
+
+END
+-- fim da procedure
+
+
+
