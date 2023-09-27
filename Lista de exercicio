@@ -40,3 +40,11 @@ SET resposta = 'não possui livros';
 END IF;
 select resposta;
 END;
+
+Questão 5
+CREATE PROCEDURE sp_LivrosAteAno(IN int year)
+BEGIN
+SELECT Titulo, Ano_Publicacao from Livro
+where Ano_Publicacao <= ano
+ORDER BY Ano_Publicacao desc;
+END;
