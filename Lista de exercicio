@@ -48,3 +48,12 @@ SELECT Titulo, Ano_Publicacao from Livro
 where Ano_Publicacao <= ano
 ORDER BY Ano_Publicacao desc;
 END;
+
+Questão 6
+CREATE PROCEDURE sp_TitulosPorCategoria(IN nome_local varchar(200))
+BEGIN
+select Livro.Titulo, Categoria.Nome as categoria
+from Livro
+inner join Categoria on Categoria.Categoria_ID = Livro.Categoria_ID
+where nome_local = Categoria.Nome;
+END;
